@@ -1,7 +1,7 @@
 from collections import namedtuple
 import enum
 
-clas Player(enum.Enum):
+class Player(enum.Enum):
 	black = 1
 	white = 2
 	@property
