@@ -3,7 +3,7 @@ from opgo import goboard_slow as board
 from opgo import gotypes
 from opgo.utils import print_board, print_move, point_from_coords
 from six.moves import input
-
+from opgo import scoring
 
 def main():
     board_size = 9
@@ -23,7 +23,8 @@ def main():
 
         print_move(game.next_player, move)
         game = game.apply_move(move)
-
+    game_result = scoring.compute_game_result(game)
+    print(game_result.winner,' wins!!\nMargin of win: ',game_result.winning_margin)
 
 if __name__ == '__main__':
     main()
