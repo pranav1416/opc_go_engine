@@ -1,5 +1,7 @@
-__all__ = ['goboard_slow','gotypes','utils']
-from go_bot.goboard_slow import *
-from go_bot.gotypes import *
-from go_bot.utils import *
-import go_bot.agent
+from .goboard_slow import *
+from .gotypes import *
+from .utils import *
+from . import agent
+from .agent.base import *
+from .agent.helpers import *
+from .agent.naivecfg import *

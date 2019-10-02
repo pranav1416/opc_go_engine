@@ -1,5 +1,4 @@
-from go_bot.gotypes import Player as Ply, Point
-import numpy as np
+from opgo.gotypes import Player as Ply, Point
 
 COLS = 'ABCDEFGHJKLMNOPQRST'
 STONE_TO_CHAR = {

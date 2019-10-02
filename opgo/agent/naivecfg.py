@@ -1,8 +1,8 @@
 import random
-from go_bot.agent.base import Agent
-from go_bot.agent.helpers import is_point_an_eye
-from go_bot.goboard_slow import Move
-from go_bot.gotypes import Point
+from opgo import Agent
+from opgo.agent.helpers import is_point_an_eye
+from opgo.goboard_slow import Move
+from opgo.gotypes import Point
 
 __all__ = ['RandomBot']
 
@@ -14,10 +14,8 @@ class RandomBot(Agent):
             for c in range(1, game_state.board.num_cols + 1):
                 candidate = Point(row=r, col=c)
                 if game_state.is_valid_move(Move.play(candidate)) and \
-                        not is_point_an_eye(game_state.board,
-                                            candidate,
-                                            game_state.next_player):
-                    candidates.append(candidate)
+                        not is_point_an_eye(game_state.board,candidate,game_state.next_player):
+                        candidates.append(candidate)
         if not candidates:
             return Move.pass_turn()
         return Move.play(random.choice(candidates))

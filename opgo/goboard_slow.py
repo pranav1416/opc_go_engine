@@ -1,5 +1,5 @@
 import copy
-from go_bot.gotypes import Player
+from opgo.gotypes import Player
 
 class Move(): 
     def __init__(self, point=None, is_pass=False, is_resign=False):

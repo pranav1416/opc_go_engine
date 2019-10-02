@@ -1,4 +1,4 @@
-from go_bot.gotypes import Point
+from opgo.gotypes import Point
 
 def is_point_an_eye(board, point, color):
     if board.get(point) is not None:
