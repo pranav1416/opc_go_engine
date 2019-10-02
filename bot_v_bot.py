@@ -1,13 +1,13 @@
-from go_bot import agent
-from go_bot import goboard_slow
-from go_bot import gotypes
-from go_bot.utils import print_board, print_move 
+from opgo import agent
+from opgo import goboard_slow
+from opgo import gotypes
+from opgo.utils import print_board, print_move 
 import time
 
 def main(): 
     board_size = 9
     game = goboard_slow.GameState.new_game(board_size) 
-    bots = {gotypes.Player.black: agent.naive.RandomBot(), gotypes.Player.white: agent.naive.RandomBot(), }
+    bots = {gotypes.Player.black: agent.naivecfg.RandomBot(), gotypes.Player.white: agent.naivecfg.RandomBot(), }
     while not game.is_over():
         time.sleep(0.3)
         print(chr(27) + "[2J")

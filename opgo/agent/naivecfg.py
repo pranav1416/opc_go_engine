@@ -1,5 +1,5 @@
 import random
-from opgo import Agent
+from opgo.agent import Agent
 from opgo.agent.helpers import is_point_an_eye
 from opgo.goboard_slow import Move
 from opgo.gotypes import Point
