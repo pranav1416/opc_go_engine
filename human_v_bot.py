@@ -1,7 +1,7 @@
-from dlgo import agent
-from dlgo import goboard_slow as board
-from dlgo import gotypes
-from dlgo.utils import print_board, print_move, point_from_coords
+from opgo import agent
+from opgo import goboard_slow as board
+from opgo import gotypes
+from opgo.utils import print_board, print_move, point_from_coords
 from six.moves import input
 
 
@@ -15,7 +15,7 @@ def main():
         print_board(game.board)
 
         if game.next_player == gotypes.Player.black:
-            human_move = input('-- ')
+            human_move = input('> ')  # Get move input from user.
             point = point_from_coords(human_move.strip())
             move = board.Move.play(point)
         else:
