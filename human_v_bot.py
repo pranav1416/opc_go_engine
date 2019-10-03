@@ -6,7 +6,7 @@ from six.moves import input
 from opgo import scoring
 
 def main():
-    board_size = 9
+    board_size = int(input('Input Board Size : '))
     game = board.GameState.new_game(board_size)
     bot = agent.RandomBot()
 

@@ -6,7 +6,7 @@ from opgo import scoring
 import time
 
 def main(): 
-    board_size = 9
+    board_size = int(input('Input Board Size : '))
     game = goboard_slow.GameState.new_game(board_size) 
     bots = {gotypes.Player.black: agent.naivecfg.RandomBot(), gotypes.Player.white: agent.naivecfg.RandomBot(), }
     while not game.is_over():
