@@ -16,8 +16,14 @@ def main():
 
         if game.next_player == gotypes.Player.black:
             human_move = input('> ')  # Get move input from user.
-            point = point_from_coords(human_move.strip())
-            move = board.Move.play(point)
+            print(human_move)
+            if(human_move == 'PASS'):
+                move = board.Move.pass_turn()
+            elif(human_move == 'RESIGN'):
+                move = board.Move.resign()
+            else:
+                point = point_from_coords(human_move.strip())
+                move = board.Move.play(point)
         else:
             move = bot.select_move(game)
 
