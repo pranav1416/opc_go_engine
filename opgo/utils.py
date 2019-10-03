@@ -28,6 +28,7 @@ def print_board(board):
         print('%s%d %s' % (bump, row, ''.join(line)))
     print('    ' + '  '.join(COLS[:board.num_cols]))
 
+
 def point_from_coords(coords):
     col = COLS.index(coords[0]) + 1
     row = int(coords[1:])
@@ -39,4 +40,3 @@ def coords_from_point(point):
         COLS[point.col - 1],
         point.row
     )
-

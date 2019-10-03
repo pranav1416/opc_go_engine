@@ -1,7 +1,8 @@
 import copy
 from opgo.gotypes import Player
 
-class Move(): 
+
+class Move:
     def __init__(self, point=None, is_pass=False, is_resign=False):
         assert (point is not None) ^ is_pass ^ is_resign 
         self.point = point
@@ -21,7 +22,8 @@ class Move():
     def resign(cls):
         return Move(is_resign=True)
 
-class GoString():
+
+class GoString:
     def __init__(self, color, stones, liberties):
         self.color = color
         self.stones = set(stones)
@@ -48,7 +50,8 @@ class GoString():
             self.stones == other.stones and \
             self.liberties == other.liberties
 
-class Board():
+
+class Board:
     def __init__(self, num_rows, num_cols):
         self.num_rows = num_rows
         self.num_cols = num_cols
@@ -109,7 +112,8 @@ class Board():
                     neighbor_string.add_liberty(point) 
             self._grid[point] = None
 
-class GameState():
+
+class GameState:
     def __init__(self, board, next_player, previous, move):
         self.board = board 
         self.next_player = next_player 
@@ -151,7 +155,7 @@ class GameState():
 
     @property
     def situation(self):
-        return (self.next_player, self.board)
+        return self.next_player, self.board
     
     def does_move_violate_ko(self, player, move): 
         if not move.is_play:
@@ -171,4 +175,5 @@ class GameState():
             return False
         if move.is_pass or move.is_resign:
             return True 
-        return (self.board.get(move.point) is None and not self.is_move_self_capture(self.next_player, move) and not self.does_move_violate_ko(self.next_player, move))
+        return (self.board.get(move.point) is None and not self.is_move_self_capture(self.next_player, move)
+                and not self.does_move_violate_ko(self.next_player, move))
