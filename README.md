@@ -1,4 +1,4 @@
-# go_bot
+# One Punch Code
 Go Engine using Deep learning
 
 Group Members:
