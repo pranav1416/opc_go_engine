@@ -31,7 +31,7 @@ def main():
         print_move(game.next_player, move)
         game = game.apply_move(move)
     game_result = scoring.compute_game_result(game)
-    print(game_result.winner, ' wins!!\nMargin of win: ', game_result.winning_margin)
+    print(game_result.winner, 'wins!!\nMargin of win:', game_result.winning_margin)
 
 
 if __name__ == '__main__':
