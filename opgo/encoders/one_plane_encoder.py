@@ -2,7 +2,7 @@
 import numpy as np
 
 from opgo.encoders.base import Encoder
-from opgo.goboard import Point
+from opgo.goboard_fast import Point
 # end::oneplane_imports[]
 
 

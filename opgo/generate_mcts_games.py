@@ -2,7 +2,7 @@
 import argparse
 import numpy as np
 
-from opgo.encoders import get_encoder_by_name
+from opgo import encoders
 from opgo import goboard_fast as goboard
 from opgo import treeagent
 from opgo.utils import print_board, print_move
@@ -13,7 +13,7 @@ from opgo.utils import print_board, print_move
 def generate_game(board_size, rounds, max_moves, temperature):
     boards, moves = [], []  # <1>
 
-    encoder = get_encoder_by_name('oneplane', board_size)  # <2>
+    encoder = encoders.base.get_encoder_by_name('one_plane_encoder', board_size)  # <2>
 
     game = goboard.GameState.new_game(board_size)  # <3>
 
