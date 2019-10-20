@@ -230,7 +230,7 @@ class Board:
 
 class Move:
 
-    def __init__(self, point=None, is_pass=False, is_resign=False):
+    def __init__(self, point=None, is_pass=False, is_resign=False, is_play=False):
         assert (point is not None) ^ is_pass ^ is_resign
         self.point = point
         self.is_play = (self.point is not None)

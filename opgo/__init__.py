@@ -9,5 +9,5 @@ from .agent.naivecfg import *
 from . import encoders
 from . import mcts
 from .encoders.base import *
-from .encoders.one_plane_encoder import *
+from .encoders.oneplane import *
 from .mcts import mcts

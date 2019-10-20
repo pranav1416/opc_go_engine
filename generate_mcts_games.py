@@ -2,9 +2,9 @@
 import argparse
 import numpy as np
 
-from opgo import encoders
+from opgo.encoders import get_encoder_by_name
 from opgo import goboard_fast as goboard
-from opgo import treeagent
+from opgo import mcts
 from opgo.utils import print_board, print_move
 # end::generate_mcts_imports[]
 
@@ -13,11 +13,11 @@ from opgo.utils import print_board, print_move
 def generate_game(board_size, rounds, max_moves, temperature):
     boards, moves = [], []  # <1>
 
-    encoder = encoders.base.get_encoder_by_name('one_plane_encoder', board_size)  # <2>
+    encoder = get_encoder_by_name('oneplane', board_size)  # <2>
 
     game = goboard.GameState.new_game(board_size)  # <3>
 
-    bot = treeagent.TreeAgent(rounds, temperature)  # <4>
+    bot = mcts.MCTSAgent(rounds, temperature)  # <4>
 
     num_moves = 0
     while not game.is_over():
@@ -56,7 +56,8 @@ def main():
     parser.add_argument('--board-size', '-b', type=int, default=9)
     parser.add_argument('--rounds', '-r', type=int, default=1000)
     parser.add_argument('--temperature', '-t', type=float, default=0.8)
-    parser.add_argument('--max-moves', '-m', type=int, default=60, help='Max moves per game.')
+    parser.add_argument('--max-moves', '-m', type=int, default=60,
+                        help='Max moves per game.')
     parser.add_argument('--num-games', '-n', type=int, default=10)
     parser.add_argument('--board-out')
     parser.add_argument('--move-out')

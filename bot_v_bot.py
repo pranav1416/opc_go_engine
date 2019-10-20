@@ -1,5 +1,5 @@
 from opgo import agent
-from opgo import goboard_slow as board
+from opgo import goboard_fast as board
 from opgo import gotypes
 from opgo.utils import print_board, print_move 
 from opgo import scoring
