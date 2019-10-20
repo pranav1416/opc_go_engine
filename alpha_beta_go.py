@@ -1,8 +1,8 @@
 from six.moves import input
 
-from opgo import goboard_fast
+from opgo import goboard_fast as goboard
 from opgo import gotypes
-from opgo import mcts
+from opgo import minimax
 from opgo.utils import print_board, print_move, point_from_coords
 
 BOARD_SIZE = 5
@@ -28,15 +28,15 @@ def capture_diff(game_state):
 
 
 def main():
-    game = goboard_fast.GameState.new_game(BOARD_SIZE)
-    bot = mcts.MCTSAgent(500, temperature=1.4)
+    game = goboard.GameState.new_game(BOARD_SIZE)
+    bot = minimax.AlphaBetaAgent(3, capture_diff)
 
     while not game.is_over():
         print_board(game.board)
         if game.next_player == gotypes.Player.black:
             human_move = input('-- ')
             point = point_from_coords(human_move.strip())
-            move = goboard_fast.Move.play(point)
+            move = goboard.Move.play(point)
         else:
             move = bot.select_move(game)
         print_move(game.next_player, move)

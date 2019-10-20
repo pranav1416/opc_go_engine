@@ -11,3 +11,5 @@ from . import mcts
 from .encoders.base import *
 from .encoders.oneplane import *
 from .mcts import mcts
+from . import minimax
+from .scoring import *
